@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function AdminDashboard() {
-  const [show, setShow] = useState(false);
+  const [show] = useState(false);
 
   return (
     <div className=" p-5">
@@ -168,7 +168,7 @@ export default function AdminDashboard() {
                     <th scope="col" className="px-6 py-3">
                       Vote status
                     </th>
-                
+
                   </tr>
                 </thead>
                 <tbody>
@@ -411,161 +411,161 @@ export default function AdminDashboard() {
 
 
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 mt-8 bg-[#fff]">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
-                  <tr>
-                    <th scope="col" className="px-6 py-3">
-                      Voter ID
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Transaction ID
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Time of vote
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Vote status
-                    </th>
-                
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="odd:bg-white even:bg-gray-50  border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
-                        Successful
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white  even:bg-gray-50 border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
-                        Successful
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white  even:bg-gray-50  border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
-                        Successful
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white  even:bg-gray-50 border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#FFA09459] text-[#DE1F05] font-semibold rounded-lg px-10 py-2">
-                        Failed
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white  even:bg-gray-50  border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
-                        Successful
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white  even:bg-gray-50  border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#FFA09459] text-[#DE1F05] font-semibold rounded-lg px-10 py-2">
-                        Failed
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white  even:bg-gray-50  border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
-                        Successful
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white  even:bg-gray-50  border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#FFA09459] text-[#DE1F05] font-semibold rounded-lg px-10 py-2">
-                        Failed
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                    >
-                      VTR-7e4a9b68...
-                    </th>
-                    <td className="px-6 py-4">0x5e884898da...</td>
-                    <td className="px-6 py-4">12:56 pm</td>
-                    <td className="  ">
-                      <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
-                        Successful
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Voter ID
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Transaction ID
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Time of vote
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Vote status
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="odd:bg-white even:bg-gray-50  border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
+                    Successful
+                  </span>
+                </td>
+              </tr>
+              <tr className="odd:bg-white  even:bg-gray-50 border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
+                    Successful
+                  </span>
+                </td>
+              </tr>
+              <tr className="odd:bg-white  even:bg-gray-50  border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
+                    Successful
+                  </span>
+                </td>
+              </tr>
+              <tr className="odd:bg-white  even:bg-gray-50 border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#FFA09459] text-[#DE1F05] font-semibold rounded-lg px-10 py-2">
+                    Failed
+                  </span>
+                </td>
+              </tr>
+              <tr className="odd:bg-white  even:bg-gray-50  border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
+                    Successful
+                  </span>
+                </td>
+              </tr>
+              <tr className="odd:bg-white  even:bg-gray-50  border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#FFA09459] text-[#DE1F05] font-semibold rounded-lg px-10 py-2">
+                    Failed
+                  </span>
+                </td>
+              </tr>
+              <tr className="odd:bg-white  even:bg-gray-50  border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
+                    Successful
+                  </span>
+                </td>
+              </tr>
+              <tr className="odd:bg-white  even:bg-gray-50  border-b ">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#FFA09459] text-[#DE1F05] font-semibold rounded-lg px-10 py-2">
+                    Failed
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                >
+                  VTR-7e4a9b68...
+                </th>
+                <td className="px-6 py-4">0x5e884898da...</td>
+                <td className="px-6 py-4">12:56 pm</td>
+                <td className="  ">
+                  <span className="bg-[#A2F6C559] text-[#13B959] font-semibold rounded-lg px-6 py-2">
+                    Successful
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
 
