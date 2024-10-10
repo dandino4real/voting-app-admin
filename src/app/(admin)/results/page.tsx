@@ -5,8 +5,9 @@ import { HiOutlineRefresh } from "react-icons/hi";
 import PartyLogo from '../../../../public/partylogo.png';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
 
 interface PartyResultProps {
     partyName: string;
@@ -38,13 +39,12 @@ const PartyResult = ({ partyName, candidateName, votes }: PartyResultProps) => (
 export default function Page() {
     const partyResults = [
         { partyName: "Democratic party (DEM)", candidateName: "Olivia Reynolds", votes: "21,578,182" },
-        { partyName: "Democratic party (DEM)", candidateName: "Olivia Reynolds", votes: "21,578,182" },
         { partyName: "Republican party (REP)", candidateName: "John Doe", votes: "18,456,900" },
         { partyName: "Democratic party (DEM)", candidateName: "Olivia Reynolds", votes: "21,578,182" },
         { partyName: "Republican party (REP)", candidateName: "John Doe", votes: "18,456,900" },
         { partyName: "Democratic party (DEM)", candidateName: "Olivia Reynolds", votes: "21,578,182" },
+        { partyName: "Republican party (REP)", candidateName: "John Doe", votes: "18,456,900" },
         { partyName: "Democratic party (DEM)", candidateName: "Olivia Reynolds", votes: "21,578,182" },
-        // Add more results as needed
     ];
 
     const data = {
@@ -53,7 +53,8 @@ export default function Page() {
             {
                 label: 'Registered Voters - 25,000,000',
                 data: [595000, 1190000, 1785000, 2380000, 2975000, 1785000],
-                backgroundColor: ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#6366f1', '#8b5cf6'],
+                backgroundColor: '#10b981',
+                hoverBackgroundColor: '#3b82f6',
             },
         ],
     };
@@ -63,10 +64,36 @@ export default function Page() {
         scales: {
             y: {
                 beginAtZero: true,
-                max: 3000000,
+                max: 3400000,
                 ticks: {
-                    stepSize: 395000,
+                    stepSize: 595000,
+                    color: '#433E3F',
                 },
+                grid: {
+                    display: false,
+                },
+            },
+            x: {
+                grid: {
+                    display: false,
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: '#433E3F',
+                },
+            },
+            datalabels: {
+                color: '#433E3F',
+                anchor: 'end',
+                align: 'top',
+                font: {
+                    weight: 'bold',
+                },
+                formatter: (value: number) => value.toLocaleString(),
             },
         },
     };
@@ -106,8 +133,8 @@ export default function Page() {
                 )}
             </div>
 
-            <div className="w-full max-h-[624px] gap-8 flex justify-between items-center">
-                <div className="w-1/2 flex flex-col gap-8 bg-[#FAFAFA] rounded-md p-8">
+            <div className="w-full gap-8 flex justify-between items-center">
+                <div className="w-1/2 h-[628px] flex flex-col gap-8 bg-[#FAFAFA] rounded-md p-8">
                     <div className="flex flex-col">
                         <p className="text-lg font-bold text-[#433E3F]">Recent results</p>
                         <p className="text-sm font-light text-[#433E3F]">1 min ago</p>
@@ -124,8 +151,8 @@ export default function Page() {
                 </div>
 
                 {/* Bar chart for vote comparison */}
-                <div className="w-1/2 flex flex-col justify-center items-center gap-8 bg-[#FAFAFA] rounded-md p-8">
-                    <Bar data={data} options={options} />
+                <div className="w-1/2 h-[628px] flex flex-col justify-center items-center gap-8 bg-[#FAFAFA] rounded-md p-8">
+                    <Bar data={data} options={options} className="w-[70%] min-h-[328px]" />
                 </div>
             </div>
         </div>
