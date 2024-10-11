@@ -23,7 +23,7 @@ export default function SidebarLink({
   const isActive = useCheckLinkActive(link, link, index);
 
   return (
-    <Link href={link} className="group rounded-lg text-sm font-semibold">
+    <Link href={link} className="group rounded-lg text-base font-semibold">
       <span
         className={cn(
           "flex w-full items-center gap-2 rounded-full px-4 py-1 font-semibold",
@@ -36,7 +36,7 @@ export default function SidebarLink({
             isActive ? "text-white" : "text-primary" // Change icon color based on isActive
           )}
         >
-          {isActive ? <ActiveIcon /> : <Icon />}
+          {isActive ? <ActiveIcon size={20} /> : <Icon size={20} />}
         </span>
         <span
           className={cn(

@@ -24,8 +24,12 @@ const config: Config = {
         "light-warning": "#F7DEC0",
         "light-green": "#DBF9E7",
       },
+      fontFamily: {
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+      },
     },
   },
   plugins: [],
 };
+
 export default config;

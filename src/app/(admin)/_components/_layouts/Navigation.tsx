@@ -1,5 +1,5 @@
 "use client";
-import { RxDashboard } from "react-icons/rx";
+import { MdSpaceDashboard } from "react-icons/md";
 import { MdOutlineHowToVote } from "react-icons/md";
 import { RiUserFill } from "react-icons/ri";
 import { BsBarChartLineFill } from "react-icons/bs";
@@ -15,8 +15,8 @@ const navLinks = [
     id: 1,
     link: "/dashboard",
     title: "Dashboard",
-    activeIcon: RxDashboard,
-    icon: RxDashboard,
+    activeIcon: MdSpaceDashboard,
+    icon: MdSpaceDashboard,
   },
   {
     id: 2,
@@ -66,17 +66,16 @@ const Navigation = () => {
   useDisclosure();
 
   return (
-    <nav className="z-20 col-span-1 col-start-1 flex h-full items-center justify-between text-primary bg-white py-4 md:py-2 lg:grid lg:grid-cols-1 lg:grid-rows-[auto_1fr] px-2 lg:gap-16 lg:pt-4 lg:w-64"> {/* Increased width */}
-
-      {/* <div>
-        <h1 className='text-4xl font-bold text-primary text-center'>Admin</h1>
-      </div> */}
+    <nav className="z-20 col-span-1 col-start-1 flex h-full items-center text-primary bg-white py-4 md:py-2 lg:grid lg:grid-cols-1 lg:grid-rows-[auto_1fr] px-2 lg:gap-16 lg:pt-4 lg:w-64"> {/* Increased width */}
 
       <div className="flex items-center justify-end gap-2 lg:hidden">
         <MobileNav />
       </div>
 
-      <ul className="hidden h-full w-full justify-center flex-col text-base font-medium lg:flex lg:gap-5 lg:px-6">
+      <ul className="hidden h-full w-full justify-center gap-8 flex-col text-base font-medium lg:flex lg:gap-5 lg:px-6">
+        <div className="mb-12">
+          <h1 className='text-4xl font-bold text-primary text-center'>Admin</h1>
+        </div>
         {navLinks.map((link) => {
           return (
             <li key={link.id}>
