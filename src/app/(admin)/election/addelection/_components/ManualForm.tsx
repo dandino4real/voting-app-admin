@@ -1,7 +1,11 @@
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Select, { MultiValue } from "react-select"; // Import React Select and MultiValue
+import { FiArrowUpRight } from "react-icons/fi";
+import { useState } from "react";
+import ViewCandidateModal from "@/app/components/modals/ViewCandidateModal";
+import RegisterCandidateModal from "@/app/components/modals/RegisterCandidateModal";
 
 // Validation schema using yup
 const schema = yup.object().shape({
@@ -36,7 +40,6 @@ const eligibilityOptions: EligibilityOption[] = [
 export default function ManualForm() {
     const {
         register,
-        control,
         handleSubmit,
         setValue,
         formState: { errors },
@@ -48,11 +51,6 @@ export default function ManualForm() {
         },
     });
 
-    const { fields, append } = useFieldArray({
-        control,
-        name: "candidates",
-    });
-
     const onSubmit = (data: FormValues) => {
         console.log(data);
     };
@@ -62,6 +60,16 @@ export default function ManualForm() {
         const selectedValues = selectedOptions ? selectedOptions.map(option => option.value) : [];
         setValue("eligibilityParams", selectedValues);
     };
+
+    // Separate state for each modal
+    const [isViewCandidateModalOpen, setIsViewCandidateModalOpen] = useState(false);
+    const [isRegisterCandidateModalOpen, setIsRegisterCandidateModalOpen] = useState(false);
+
+    const openViewCandidateModal = () => setIsViewCandidateModalOpen(true);
+    const closeViewCandidateModal = () => setIsViewCandidateModalOpen(false);
+
+    const openRegisterCandidateModal = () => setIsRegisterCandidateModalOpen(true);
+    const closeRegisterCandidateModal = () => setIsRegisterCandidateModalOpen(false);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -114,27 +122,25 @@ export default function ManualForm() {
             <div>
                 <label className="block text-sm font-medium text-gray-700">Candidates</label>
                 <div className="grid grid-cols-4 gap-4">
-                    {fields.map((field, index) => (
-                        <div key={field.id}>
-                            <input
-                                {...register(`candidates.${index}.name`)}
-                                type="text"
-                                className="w-full p-2 border rounded-md"
-                                placeholder={`Candidate ${index + 1}`}
-                            />
-                            {errors.candidates?.[index]?.name && (
-                                <p className="text-red-500 text-sm">{errors.candidates[index]?.name?.message}</p>
-                            )}
-                        </div>
-                    ))}
+                    {/* Button to open View Candidate modal */}
+                    <button
+                        type="button"
+                        className="flex items-center mt-4 px-6 py-2 rounded-md bg-white font-semibold border text-neutral max-w-max"
+                        onClick={openViewCandidateModal}
+                    >
+                        Olivia Reynold
+                        <FiArrowUpRight className="text-[#5797B4]" />
+                    </button>
+
+                    {/* Button to open Register Candidate modal */}
+                    <button
+                        type="button"
+                        onClick={openRegisterCandidateModal}
+                        className="mt-4 px-6 py-2 rounded-md bg-gray-200 font-semibold text-neutral"
+                    >
+                        + Add Candidate
+                    </button>
                 </div>
-                <button
-                    type="button"
-                    onClick={() => append({ name: "" })}
-                    className="mt-4 px-6 py-2 rounded-md bg-gray-200 font-semibold text-neutral"
-                >
-                    + Add Candidate
-                </button>
             </div>
 
             {/* Eligibility Parameters */}
@@ -163,7 +169,7 @@ export default function ManualForm() {
             </div>
 
             {/* Submit Button */}
-            <div className='flex justify-center '>
+            <div className='flex justify-center'>
                 <button
                     type="submit"
                     className="w-[80%] px-6 py-2 bg-primary text-white rounded-lg font-semibold"
@@ -171,6 +177,10 @@ export default function ManualForm() {
                     Submit
                 </button>
             </div>
+
+            {/* Render the Modals */}
+            <ViewCandidateModal isOpen={isViewCandidateModalOpen} onClose={closeViewCandidateModal} />
+            <RegisterCandidateModal isOpen={isRegisterCandidateModalOpen} onClose={closeRegisterCandidateModal} />
         </form>
     );
 }
