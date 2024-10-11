@@ -5,7 +5,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { useState } from "react";
 
 export default function AdminDashboard() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   return (
     <div className=" px-5  pb-5">
