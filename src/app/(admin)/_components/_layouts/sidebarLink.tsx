@@ -26,7 +26,7 @@ export default function SidebarLink({
     <Link href={link} className="group rounded-lg text-sm font-semibold">
       <span
         className={cn(
-          "flex w-full items-center gap-2 rounded-full px-4 py-1 font-semibold",
+          "flex w-full items-center gap-2 rounded-full px-5 py-3 font-semibold",
           isActive ? "bg-primary text-white" : "bg-white text-primary" // Apply styles based on isActive
         )}
       >

@@ -64,14 +64,14 @@ export default function AdminUser() {
     };
 
     return (
-        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 border">
+        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 shadow">
             <div className="flex justify-between items-center">
                 <div>
                     <p className="text-lg font-bold">Users</p>
                     <p className="text-base font-normal text-neutral">View and edit users</p>
                 </div>
                 <select
-                    className="text-base text-neutral border font-semibold text-center px-2 py-2 rounded-md"
+                    className=" text-neutral border font-semibold px-2 py-2 rounded-md w-[20%]"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                 >
@@ -86,11 +86,11 @@ export default function AdminUser() {
                 <table className="w-full text-sm text-left text-gray-500 mt-8 bg-white">
                     <thead className="text-xs text-gray-700 capitalize bg-gray-50">
                         <tr>
-                            <th scope="col" className="px-6 py-3">User Name</th>
-                            <th scope="col" className="px-6 py-3">Email</th>
-                            <th scope="col" className="px-6 py-3">Wallet ID</th>
-                            <th scope="col" className="px-6 py-3">Voter Status</th>
-                            <th scope="col" className="px-6 py-3">Action</th>
+                            <th scope="col" className="pe-6 py-3">User Name</th>
+                            <th scope="col" className="pe-6 py-3">Email</th>
+                            <th scope="col" className="pe-6 py-3">Wallet ID</th>
+                            <th scope="col" className="pe-6 py-3">Voter Status</th>
+                            <th scope="col" className="ps-2 pe-6 py-3">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,11 +101,12 @@ export default function AdminUser() {
                                 <td className="py-2">{user.id}</td>
 
                                 {/* Status */}
-                                <td className={`text-sm font-semibold text-center rounded-xl flex items-center justify-center ${user.status === "Approved" ? "text-success bg-light-green" : "text-warning bg-light-warning"}`}>
+                                <td className={`text-sm font-semibold text-center rounded-xl flex items-center justify-center mt-3 py-1  ${user.status === "Approved" ? "text-success bg-light-green" : "text-warning bg-light-warning"}`}>
+                                    
                                     {user.status}
                                 </td>
 
-                                <td className="py-2">
+                                <td className="py-2 px-2 ">
                                     <Link href={`/users/${user.id}`} className="bg-transparent text-sm font-semibold rounded-xl text-[#3A6B81] px-2 py-2 flex items-center space-x-2">
                                         <VscEye className="inline-block" />
                                         <span>View</span>

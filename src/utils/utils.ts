@@ -1,7 +1,12 @@
 import { AxiosError } from 'axios';
 import moment from 'moment';
-import { signOut } from 'next-auth/react';
+// import { signOut } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
+
+
+const signOut = () => {
+  console.log('You have succesfully sign out')
+}
 
 export const handleError = (error: AxiosError) => {
   if (error && error?.status === 401) {

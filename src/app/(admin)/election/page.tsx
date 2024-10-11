@@ -82,10 +82,10 @@ export default function AdminElection() {
     };
 
     return (
-        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 border">
-            <div className="flex justify-between items-center">
-                <p className="text-lg font-bold">Elections</p>
-                <Link href="/election/addelection" className="py-2 px-8 border border-primary rounded-lg text-primary text-lg font-bold flex items-center space-x-2">
+        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 shadow">
+            <div className="flex justify-between items-center ">
+                <p className="text-lg font-semibold text-[#433E3F]">Elections</p>
+                <Link href="/election/addelection" className="py-2 px-8 border border-primary rounded-lg text-primary  font-bold flex items-center space-x-2 ">
                     <span>Add Election</span>
                     <MdModeEdit className="inline-block" />
                 </Link>

@@ -24,12 +24,12 @@ const data = [
 
 const Candidates = () => {
     return (
-        <div className="bg-[#FAFAFA] rounded-lg p-8 flex flex-col gap-4">
+        <div className="bg-[#FAFAFA] rounded-lg p-8 flex flex-col gap-4 shadow">
             <div className="flex justify-between items-center">
-                <p className="text-lg font-bold">Latest news and updates</p>
+                <p className="text-[#433E3F] font-semibold">Latest news and updates</p>
             </div>
 
-            <table className="w-full table-auto">
+            <table className="w-full table-auto text-sm">
                 <thead>
                     <tr className="bg-gray-100">
                         <th className="px-4 py-2 border-b w-1/3 text-left">Political Party</th>

@@ -66,7 +66,7 @@ const Navigation = () => {
   useDisclosure();
 
   return (
-    <nav className="z-20 col-span-1 col-start-1 flex h-full items-center justify-between text-primary bg-white py-4 md:py-2 lg:grid lg:grid-cols-1 lg:grid-rows-[auto_1fr] px-2 lg:gap-16 lg:pt-4 lg:w-64"> {/* Increased width */}
+    <nav className="z-20 col-span-1 col-start-1 flex h-full items-center justify-between text-primary bg-white py-4 md:py-2 lg:grid lg:grid-cols-1 lg:grid-rows-[auto_1fr] px-2 lg:gap-16 lg:pt-4 lg:w-64 "> {/* Increased width */}
 
       {/* <div>
         <h1 className='text-4xl font-bold text-primary text-center'>Admin</h1>
@@ -76,7 +76,7 @@ const Navigation = () => {
         <MobileNav />
       </div>
 
-      <ul className="hidden h-full w-full justify-center flex-col text-base font-medium lg:flex lg:gap-5 lg:px-6">
+      <ul className="hidden h-full w-full  flex-col text-base font-medium lg:flex lg:gap-5 lg:px-6 pt-10 ">
         {navLinks.map((link) => {
           return (
             <li key={link.id}>

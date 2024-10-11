@@ -166,7 +166,7 @@ export default function ManualForm() {
             <div className='flex justify-center '>
                 <button
                     type="submit"
-                    className="w-[80%] px-6 py-2 bg-primary text-white rounded-lg font-semibold"
+                    className="w-[80%] px-6 py-3 bg-primary text-white rounded-lg font-semibold"
                 >
                     Submit
                 </button>

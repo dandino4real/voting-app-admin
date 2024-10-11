@@ -7,7 +7,7 @@ export default function AdminElection() {
     const [activeTab, setActiveTab] = useState('manual'); // Manage the active tab
 
     return (
-        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 border">
+        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 shadow">
             <div className="flex justify-between items-center">
                 <p className="text-lg font-bold">Add Election</p>
 
