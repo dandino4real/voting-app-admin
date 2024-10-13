@@ -25,6 +25,7 @@ export const faqData = [
       "Once you have cast your vote, the platform will give you an option to verify that it has been successfully recorded.",
   },
 ];
+
 export const stepsData = [
   {
     stepNumber: "01.",
@@ -61,4 +62,19 @@ export const stepsData = [
       "After casting your vote, you can verify that it has been correctly recorded in the system. This step ensures transparency and trust.",
     shortTitle: "Step 5",
   },
+];
+
+// statesData.ts
+export const americanStates = [
+  "Alabama",
+  "Alaska",
+  "Arizona",
+  "Arkansas",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "Florida",
+  "Georgia",
+  // Add the rest of the states
 ];
