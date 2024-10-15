@@ -8,8 +8,6 @@ import { useDisclosure } from "@/hooks";
 import MobileNav from "./mobileNav";
 import SidebarLink from "./sidebarLink";
 
-
-
 const navLinks = [
   {
     id: 1,
@@ -40,50 +38,32 @@ const navLinks = [
     icon: BsBarChartLineFill,
   },
   {
-    id: 4,
+    id: 5, // changed to id 5 to avoid duplicates
     link: "/content",
     title: "Content Management",
     activeIcon: LuFileSignature,
     icon: LuFileSignature,
   },
-  // {
-  //   id: 4,
-  //   link: "/settings",
-  //   title: "Settings",
-  //   activeIcon: BiSolidContact,
-  //   icon: BiSolidContact,
-  // },
-  // {
-  //   id: 4,
-  //   link: "/Support",
-  //   title: "Support",
-  //   activeIcon: BiSolidContact,
-  //   icon: BiSolidContact,
-  // },
 ];
 
 const Navigation = () => {
-  useDisclosure();
+  const { isOpen, toggle } = useDisclosure(); // Assuming useDisclosure provides isOpen and toggle
 
   return (
-    <nav className="z-20 col-span-1 col-start-1 flex h-full items-center justify-between text-primary bg-white py-4 md:py-2 lg:grid lg:grid-cols-1 lg:grid-rows-[auto_1fr] px-2 lg:gap-16 lg:pt-4 lg:w-64 "> {/* Increased width */}
+    <nav className={`z-20 flex h-full items-center justify-between bg-white text-primary py-4 md:py-2 lg:flex lg:flex-col lg:w-64 ${isOpen ? 'block' : 'hidden'} md:block`}>
 
-      {/* <div>
-        <h1 className='text-4xl font-bold text-primary text-center'>Admin</h1>
-      </div> */}
-
-      <div className="flex items-center justify-end gap-2 lg:hidden">
-        <MobileNav />
+      {/* Mobile Navigation Button */}
+      <div className="flex items-center justify-end gap-2 md:hidden">
+        <MobileNav toggle={toggle} /> {/* Pass toggle to MobileNav for functionality */}
       </div>
 
-      <ul className="hidden h-full w-full  flex-col text-base font-medium lg:flex lg:gap-5 lg:px-6 pt-10 ">
-        {navLinks.map((link) => {
-          return (
-            <li key={link.id}>
-              <SidebarLink {...link} />
-            </li>
-          );
-        })}
+      {/* Sidebar Links */}
+      <ul className="flex flex-col h-full w-full text-base font-medium md:flex lg:gap-5 lg:px-6 pt-10">
+        {navLinks.map((link) => (
+          <li key={link.id}>
+            <SidebarLink {...link} />
+          </li>
+        ))}
       </ul>
     </nav>
   );

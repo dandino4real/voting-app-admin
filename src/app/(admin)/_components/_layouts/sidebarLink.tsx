@@ -26,13 +26,13 @@ export default function SidebarLink({
     <Link href={link} className="group rounded-lg text-sm font-semibold">
       <span
         className={cn(
-          "flex w-full items-center gap-2 rounded-full px-5 py-3 font-semibold",
+          "flex items-center gap-2 rounded-lg px-4 py-2 transition-colors duration-200",
           isActive ? "bg-primary text-white" : "bg-white text-primary" // Apply styles based on isActive
         )}
       >
         <span
           className={cn(
-            "text-base transition-transform duration-500 group-hover:rotate-45 group-focus-visible:rotate-45",
+            "transition-transform duration-500 group-hover:rotate-45 group-focus-visible:rotate-45",
             isActive ? "text-white" : "text-primary" // Change icon color based on isActive
           )}
         >
@@ -40,7 +40,7 @@ export default function SidebarLink({
         </span>
         <span
           className={cn(
-            "transition-transform duration-500 group-hover:translate-x-1 group-focus-visible:translate-x-1",
+            "transition-transform duration-500",
             isActive ? "text-white" : "text-primary" // Change text color based on isActive
           )}
         >
