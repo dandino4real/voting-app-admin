@@ -7,7 +7,7 @@ import Featured from './_components/Featured';
 
 const Page = () => {
   return (
-    <div className='flex flex-col gap-8 bg-white rounded-lg p-6 md:p-12 shadow-md w-full max-w-screen-lg mx-auto'>
+    <div className='flex flex-col gap-8 bg-white rounded-lg px-4 py-8 lg:p-12 shadow-md w-full max-w-screen-lg mx-auto'>
       {/* Header Section */}
       <div className='flex flex-col'>
         <p className='font-semibold text-lg md:text-xl'>Home</p>

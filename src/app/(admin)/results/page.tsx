@@ -29,7 +29,7 @@ const PartyResult = ({ partyName, candidateName, votes }: PartyResultProps) => (
             </div>
             <p className="text-xs font-light text-[#433E3F]">{candidateName}</p>
         </div>
-        <p className=" font-bold text-[#433E3F]">
+        <p className="font-bold text-[#433E3F]">
             {votes} <span className="font-normal">votes</span>
         </p>
     </div>
@@ -60,6 +60,7 @@ export default function Page() {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false, // Ensures the chart maintains its aspect ratio
         scales: {
             y: {
                 beginAtZero: true,
@@ -90,7 +91,7 @@ export default function Page() {
                 anchor: 'end' as const,
                 align: 'top' as const,
                 font: {
-                    weight: 'bold' as const, 
+                    weight: 'bold' as const,
                 },
                 formatter: (value: number) => value.toLocaleString(),
             },
@@ -98,20 +99,20 @@ export default function Page() {
     };
 
     return (
-        <div className="bg-white rounded-lg p-12 flex flex-col gap-12 border">
-            <div className="flex justify-between items-center">
+        <div className="bg-white rounded-lg p-4 lg:p-12 flex flex-col gap-8 border">
+            <div className="flex flex-col lg:flex-row justify-between items-center">
                 <div>
-                    <p className=" font-semibold text-[#433E3F]">
+                    <p className="font-semibold text-[#433E3F]">
                         22-09-2024 Gubernatorial Election - Florida
                     </p>
-                    <p className="t text-gray-500">Last updated time - 11:03 PM</p>
+                    <p className="text-gray-500">Last updated time - 11:03 PM</p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    <Link href="/election/addelection" className="py-2 px-8 rounded-lg text-neutral t font-bold flex items-center space-x-2">
+                <div className="flex items-center gap-4 mt-4 lg:mt-0">
+                    <Link href="/election/addelection" className="py-2 px-8 rounded-lg text-neutral font-bold flex items-center space-x-2">
                         <span>Export CSV</span>
                     </Link>
-                    <Link href="/election/addelection" className="py-2 px-8 border bg-primary rounded-lg text-white  font-bold flex items-center space-x-2">
+                    <Link href="/election/addelection" className="py-2 px-8 border bg-primary rounded-lg text-white font-bold flex items-center space-x-2">
                         <span>Refresh</span>
                         <HiOutlineRefresh className="inline-block" />
                     </Link>
@@ -125,17 +126,17 @@ export default function Page() {
                             key={index}
                             className={`border-r px-4 w-[25%] h-[158px] flex flex-col items-center gap-4 justify-center ${index === 0 ? "h-[163px]" : ""}`}
                         >
-                            <p className=" font-semibold">{label}</p>
+                            <p className="font-semibold">{label}</p>
                             {index > 0 && <p>2,007,383</p>}
                         </div>
                     )
                 )}
             </div>
 
-            <div className="w-full gap-8 flex justify-between items-center">
-                <div className="w-1/2 h-[628px] flex flex-col gap-8 bg-[#FAFAFA] rounded-md p-8">
+            <div className="flex flex-col lg:flex-row w-full gap-4">
+                <div className="w-full lg:w-1/2 h-auto flex flex-col gap-4 bg-[#FAFAFA] rounded-md p-4 lg:p-8">
                     <div className="flex flex-col">
-                        <p className=" font-semibold text-[#433E3F]">Recent results</p>
+                        <p className="font-semibold text-[#433E3F]">Recent results</p>
                         <p className="text-sm font-light text-[#433E3F]">1 min ago</p>
                     </div>
 
@@ -150,8 +151,10 @@ export default function Page() {
                 </div>
 
                 {/* Bar chart for vote comparison */}
-                <div className="w-1/2 h-[628px] flex flex-col justify-center items-center gap-8 bg-[#FAFAFA] rounded-md p-4 shadow">
-                    <Bar data={data} options={options} className="w-[70%] min-h-[328px]" />
+                <div className="w-full lg:w-1/2 h-auto flex flex-col justify-center items-center gap-4 bg-[#FAFAFA] rounded-md p-4 shadow">
+                    <div className="w-full min-h-[328px]">
+                        <Bar data={data} options={options} />
+                    </div>
                 </div>
             </div>
         </div>

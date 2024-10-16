@@ -81,7 +81,7 @@ export default function AdminElection() {
     };
 
     return (
-        <div className="bg-white rounded-lg p-6 md:p-12 flex flex-col gap-4 shadow w-full">
+        <div className="bg-white rounded-lg p-6 md:p-12 flex flex-col gap-4 overflow-x-auto shadow w-full">
             <div className="flex justify-between items-center ">
                 <p className="text-lg font-semibold text-[#433E3F]">Elections</p>
                 <Link href="/election/addelection" className="py-2 px-4 md:px-8 border border-primary rounded-lg text-primary font-bold flex items-center space-x-2 ">

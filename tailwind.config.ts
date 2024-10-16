@@ -23,6 +23,7 @@ const config: Config = {
         "light-blue": "#E2EDF2",
         "light-warning": "#F7DEC0",
         "light-green": "#DBF9E7",
+        light: "F0F0F0",
       },
     },
   },
