@@ -28,7 +28,7 @@ const data = [
 
 const NewsUpdates = () => {
     return (
-        <div className="bg-[#FAFAFA] rounded-lg p-8 flex flex-col gap-4 shadow">
+        <div className="bg-[#FAFAFA] rounded-lg overflow-x-auto p-2 lg:p-8 flex flex-col gap-4 shadow">
             <div className="flex justify-between items-center">
                 <p className="text-[#433E3F] font-semibold">Featured articles and blogpost</p>
             </div>

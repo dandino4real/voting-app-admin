@@ -1,92 +1,82 @@
 "use client";
-import { RxDashboard } from "react-icons/rx";
-import { MdOutlineHowToVote } from "react-icons/md";
-import { RiUserFill } from "react-icons/ri";
-import { BsBarChartLineFill } from "react-icons/bs";
-import { LuFileSignature } from "react-icons/lu";
-import { useDisclosure } from "@/hooks";
-import MobileNav from "./mobileNav";
-import SidebarLink from "./sidebarLink";
-
-
+import React, { useState } from 'react';
+import { RxDashboard } from 'react-icons/rx';
+import { MdOutlineHowToVote } from 'react-icons/md';
+import { RiUserFill } from 'react-icons/ri';
+import { BsBarChartLineFill } from 'react-icons/bs';
+import { LuFileSignature } from 'react-icons/lu';
+import { FiMenu, FiX } from 'react-icons/fi'; // Import menu and close icons
+import Link from 'next/link';
 
 const navLinks = [
   {
     id: 1,
     link: "/dashboard",
     title: "Dashboard",
-    activeIcon: RxDashboard,
     icon: RxDashboard,
   },
   {
     id: 2,
     link: "/election",
     title: "Election",
-    activeIcon: MdOutlineHowToVote,
     icon: MdOutlineHowToVote,
   },
   {
     id: 3,
     link: "/users",
     title: "Users",
-    activeIcon: RiUserFill,
     icon: RiUserFill,
   },
   {
     id: 4,
     link: "/results",
     title: "Results",
-    activeIcon: BsBarChartLineFill,
     icon: BsBarChartLineFill,
   },
   {
-    id: 4,
+    id: 5,
     link: "/content",
     title: "Content Management",
-    activeIcon: LuFileSignature,
     icon: LuFileSignature,
   },
-  // {
-  //   id: 4,
-  //   link: "/settings",
-  //   title: "Settings",
-  //   activeIcon: BiSolidContact,
-  //   icon: BiSolidContact,
-  // },
-  // {
-  //   id: 4,
-  //   link: "/Support",
-  //   title: "Support",
-  //   activeIcon: BiSolidContact,
-  //   icon: BiSolidContact,
-  // },
 ];
 
-const Navigation = () => {
-  useDisclosure();
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false); // State to manage sidebar visibility
+  const [activeLink, setActiveLink] = useState(navLinks[0].link); // Set initial active link
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen); // Toggle sidebar visibility
+  };
 
   return (
-    <nav className="z-20 col-span-1 col-start-1 flex h-full items-center justify-between text-primary bg-white py-4 md:py-2 lg:grid lg:grid-cols-1 lg:grid-rows-[auto_1fr] px-2 lg:gap-16 lg:pt-4 lg:w-64 "> {/* Increased width */}
+    <div className="relative">
+      {/* Toggle Button always visible */}
+      <button
+        onClick={toggleSidebar}
+        className="md:hidden fixed top-4 left-4 z-50 p-3 bg-primary text-white rounded-md shadow-lg">
+        {/* Toggle between Menu and Close icon */}
+        {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+      </button>
 
-      {/* <div>
-        <h1 className='text-4xl font-bold text-primary text-center'>Admin</h1>
-      </div> */}
-
-      <div className="flex items-center justify-end gap-2 lg:hidden">
-        <MobileNav />
+      {/* Sidebar */}
+      <div className={`fixed top-0 left-0 h-full bg-white shadow-lg transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
+        <nav className="flex flex-col p-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.id}
+              href={link.link}
+              onClick={() => setActiveLink(link.link)}
+              className={`flex items-center p-2 my-2 rounded-md transition-colors duration-200 
+                                ${activeLink === link.link ? 'bg-primary text-white' : 'text-primary hover:bg-gray-100'}`}>
+              <link.icon className="mr-2" />
+              <span>{link.title}</span>
+            </Link>
+          ))}
+        </nav>
       </div>
-
-      <ul className="hidden h-full w-full  flex-col text-base font-medium lg:flex lg:gap-5 lg:px-6 pt-10 ">
-        {navLinks.map((link) => {
-          return (
-            <li key={link.id}>
-              <SidebarLink {...link} />
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    </div>
   );
 };
 
-export default Navigation;
+export default Sidebar;

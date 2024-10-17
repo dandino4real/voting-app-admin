@@ -64,7 +64,7 @@ export default function AdminUser() {
     };
 
     return (
-        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 shadow">
+        <div className="bg-white rounded-lg overflow-x-auto p-2 lg:p-12 flex flex-col gap-4 shadow">
             <div className="flex justify-between items-center">
                 <div>
                     <p className="text-lg font-bold">Users</p>
@@ -102,7 +102,7 @@ export default function AdminUser() {
 
                                 {/* Status */}
                                 <td className={`text-sm font-semibold text-center rounded-xl flex items-center justify-center mt-3 py-1  ${user.status === "Approved" ? "text-success bg-light-green" : "text-warning bg-light-warning"}`}>
-                                    
+
                                     {user.status}
                                 </td>
 

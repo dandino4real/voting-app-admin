@@ -16,7 +16,7 @@ const user = {
 
 const Page = () => {
     return (
-        <div className="bg-white rounded-lg p-12 flex flex-col gap-4 shadow">
+        <div className="bg-white rounded-lg p-4 lg:p-12 flex flex-col gap-4 shadow">
             <div className="flex justify-between">
                 <div className="flex items-center">
                     <AiOutlineArrowLeft className="text-primary cursor-pointer" size={24} />

@@ -24,40 +24,43 @@ const data = [
 
 const Candidates = () => {
     return (
-        <div className="bg-[#FAFAFA] rounded-lg p-8 flex flex-col gap-4 shadow">
+        <div className="bg-[#FAFAFA] rounded-lg p-4 sm:p-6 md:p-8 flex flex-col gap-4 shadow w-full max-w-screen-lg mx-auto">
             <div className="flex justify-between items-center">
-                <p className="text-[#433E3F] font-semibold">Latest news and updates</p>
+                <p className="text-[#433E3F] font-semibold text-base sm:text-lg md:text-xl">Latest news and updates</p>
             </div>
 
-            <table className="w-full table-auto text-sm">
-                <thead>
-                    <tr className="bg-gray-100">
-                        <th className="px-4 py-2 border-b w-1/3 text-left">Political Party</th>
-                        <th className="px-4 py-2 border-b w-1/3 text-left">Candidate Name</th>
-                        <th className="px-4 py-2 border-b w-1/3 text-left">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((item, index) => (
-                        <tr key={index}>
-                            <td className="px-4 py-2 border-b w-1/3 text-left">{item.party}</td>
-                            <td className="px-4 py-2 border-b w-1/3 text-left">{item.candidateName}</td>
-                            <td className="px-4 py-2 border-b w-1/3 text-left">
-                                <div className="flex gap-2">
-                                    <Link href="#" className="bg-secondary text-sm font-semibold rounded-xl text-white px-2 py-2 flex items-center space-x-2">
-                                        <VscEye className="inline-block" />
-                                        <span>View</span>
-                                    </Link>
-                                    <button className="py-2 px-2 border border-primary rounded-lg text-primary text-sm font-bold flex items-center space-x-2">
-                                        <span>Edit</span>
-                                        <MdModeEdit className="inline-block" />
-                                    </button>
-                                </div>
-                            </td>
+            {/* Table wrapper with overflow for responsiveness */}
+            <div className="overflow-x-auto">
+                <table className="w-full table-auto text-sm">
+                    <thead>
+                        <tr className="bg-gray-100">
+                            <th className="px-2 sm:px-4 py-2 border-b text-left">Political Party</th>
+                            <th className="px-2 sm:px-4 py-2 border-b text-left">Candidate Name</th>
+                            <th className="px-2 sm:px-4 py-2 border-b text-left">Action</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {data.map((item, index) => (
+                            <tr key={index}>
+                                <td className="px-2 sm:px-4 py-2 border-b text-left whitespace-nowrap">{item.party}</td>
+                                <td className="px-2 sm:px-4 py-2 border-b text-left">{item.candidateName}</td>
+                                <td className="px-2 sm:px-4 py-2 border-b text-left">
+                                    <div className="flex gap-1 sm:gap-2">
+                                        <Link href="#" className="bg-secondary text-xs sm:text-sm font-semibold rounded-xl text-white px-2 py-1 flex items-center space-x-1">
+                                            <VscEye className="inline-block" />
+                                            <span>View</span>
+                                        </Link>
+                                        <button className="py-1 px-2 border border-primary rounded-lg text-primary text-xs sm:text-sm font-bold flex items-center space-x-1">
+                                            <span>Edit</span>
+                                            <MdModeEdit className="inline-block" />
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
