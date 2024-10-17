@@ -1,72 +1,82 @@
 "use client";
-import { RxDashboard } from "react-icons/rx";
-import { MdOutlineHowToVote } from "react-icons/md";
-import { RiUserFill } from "react-icons/ri";
-import { BsBarChartLineFill } from "react-icons/bs";
-import { LuFileSignature } from "react-icons/lu";
-import { useDisclosure } from "@/hooks";
-import MobileNav from "./mobileNav";
-import SidebarLink from "./sidebarLink";
+import React, { useState } from 'react';
+import { RxDashboard } from 'react-icons/rx';
+import { MdOutlineHowToVote } from 'react-icons/md';
+import { RiUserFill } from 'react-icons/ri';
+import { BsBarChartLineFill } from 'react-icons/bs';
+import { LuFileSignature } from 'react-icons/lu';
+import { FiMenu, FiX } from 'react-icons/fi'; // Import menu and close icons
+import Link from 'next/link';
 
 const navLinks = [
   {
     id: 1,
     link: "/dashboard",
     title: "Dashboard",
-    activeIcon: RxDashboard,
     icon: RxDashboard,
   },
   {
     id: 2,
     link: "/election",
     title: "Election",
-    activeIcon: MdOutlineHowToVote,
     icon: MdOutlineHowToVote,
   },
   {
     id: 3,
     link: "/users",
     title: "Users",
-    activeIcon: RiUserFill,
     icon: RiUserFill,
   },
   {
     id: 4,
     link: "/results",
     title: "Results",
-    activeIcon: BsBarChartLineFill,
     icon: BsBarChartLineFill,
   },
   {
-    id: 5, // changed to id 5 to avoid duplicates
+    id: 5,
     link: "/content",
     title: "Content Management",
-    activeIcon: LuFileSignature,
     icon: LuFileSignature,
   },
 ];
 
-const Navigation = () => {
-  const { isOpen, toggle } = useDisclosure(); // Assuming useDisclosure provides isOpen and toggle
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false); // State to manage sidebar visibility
+  const [activeLink, setActiveLink] = useState(navLinks[0].link); // Set initial active link
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen); // Toggle sidebar visibility
+  };
 
   return (
-    <nav className={`z-20 flex h-full items-center justify-between bg-white text-primary py-4 md:py-2 lg:flex lg:flex-col lg:w-64 ${isOpen ? 'block' : 'hidden'} md:block`}>
+    <div className="relative">
+      {/* Toggle Button always visible */}
+      <button
+        onClick={toggleSidebar}
+        className="md:hidden fixed top-4 left-4 z-50 p-3 bg-primary text-white rounded-md shadow-lg">
+        {/* Toggle between Menu and Close icon */}
+        {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+      </button>
 
-      {/* Mobile Navigation Button */}
-      <div className="flex items-center justify-end gap-2 md:hidden">
-        <MobileNav toggle={toggle} /> {/* Pass toggle to MobileNav for functionality */}
+      {/* Sidebar */}
+      <div className={`fixed top-0 left-0 h-full bg-white shadow-lg transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
+        <nav className="flex flex-col p-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.id}
+              href={link.link}
+              onClick={() => setActiveLink(link.link)}
+              className={`flex items-center p-2 my-2 rounded-md transition-colors duration-200 
+                                ${activeLink === link.link ? 'bg-primary text-white' : 'text-primary hover:bg-gray-100'}`}>
+              <link.icon className="mr-2" />
+              <span>{link.title}</span>
+            </Link>
+          ))}
+        </nav>
       </div>
-
-      {/* Sidebar Links */}
-      <ul className="flex flex-col h-full w-full text-base font-medium md:flex lg:gap-5 lg:px-6 pt-10">
-        {navLinks.map((link) => (
-          <li key={link.id}>
-            <SidebarLink {...link} />
-          </li>
-        ))}
-      </ul>
-    </nav>
+    </div>
   );
 };
 
-export default Navigation;
+export default Sidebar;
